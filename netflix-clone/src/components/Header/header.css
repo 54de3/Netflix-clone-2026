@@ -1,0 +1,129 @@
+/* Header Container */
+.header_outer_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.header_outer_container.scrolled {
+    background-color: #141414;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 4%;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+/* Left Section */
+.header_left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.netflix_logo {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+
+.header_navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.header_navigation li {
+    color: #e5e5e5;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header_navigation li:hover {
+    color: #b3b3b3;
+}
+
+.header_navigation li.active {
+    color: white;
+    font-weight: 500;
+}
+
+/* Right Section */
+.header_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header_icon {
+    color: white !important;
+    cursor: pointer;
+    font-size: 20px !important;
+    transition: color 0.3s ease;
+}
+
+.header_icon:hover {
+    color: #b3b3b3 !important;
+}
+
+.profile_section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.profile_icon {
+    color: white !important;
+    font-size: 32px !important;
+}
+
+.dropdown_icon {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .header_navigation ul {
+        gap: 15px;
+    }
+    
+    .header_navigation li {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_navigation {
+        display: none;
+    }
+    
+    .header_left {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search_icon {
+        display: none;
+    }
+    
+    .header_container {
+        padding: 0 20px;
+    }
+}
