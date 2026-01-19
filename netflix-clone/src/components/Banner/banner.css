@@ -1,0 +1,96 @@
+.banner {
+    position: relative;
+    height: 80vh;
+    margin-bottom: -50px;
+    color: white;
+    object-fit: contain;
+    padding-top: 70px; /* Space for fixed header */
+}
+
+.banner__contents {
+    margin-left: 30px;
+    padding-top: 140px; /* Reduced further for better positioning */
+    height: auto; /* Changed from fixed height */
+}
+
+.banner__title {
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 1rem; /* Increased padding */
+}
+
+.banner__buttons {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    margin-bottom: 1.5rem; /* Space below buttons */
+}
+
+.banner__button {
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding: 0.8rem 2.5rem; /* Adjusted padding */
+    background-color: rgba(51, 51, 51, 0.5);
+    transition: all 0.2s;
+}
+
+.banner__button.play {
+    color: #000;
+    background-color: #fff;
+}
+
+.banner__button:hover {
+    color: #000;
+    background-color: #e6e6e6;
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+.banner__description {
+    width: 45rem;
+    line-height: 1.4; /* Increased line height for better readability */
+    padding: 0.5rem 0;
+    font-size: 1.1rem; /* Slightly larger font */
+    max-width: 500px;
+    height: auto;
+    font-weight: 400;
+}
+
+.banner__fadeBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.91),
+        #111
+    );
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner__contents {
+        padding-top: 100px;
+        margin-left: 20px;
+    }
+    
+    .banner__title {
+        font-size: 2.5rem;
+    }
+    
+    .banner__button {
+        padding: 0.6rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .banner__description {
+        max-width: 90%;
+        font-size: 1rem;
+    }
+}
