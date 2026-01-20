@@ -1,0 +1,257 @@
+/* Row.css - Netflix Clone Row Component Styles */
+
+.row {
+    margin-left: 20px;
+    color: white;
+    /* Add these lines */
+    position: relative; 
+    z-index: 1;
+    margin-top: 20px; 
+}
+
+.row__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 5px; /* Reduced from 10px */
+    padding-left: 20px;
+}
+
+.row__posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    /* Reduced padding to minimize vertical space inside the row */
+    padding: 10px 20px;
+}
+
+.row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.row__posters {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.row__poster {
+    object-fit: contain;
+    width: 100%;
+    max-height: 100px; /* Standard height for landscape posters */
+    margin-right: 8px;
+    transition: transform 450ms;
+}
+.row__poster:hover {
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+.row__posterLarge {
+    max-height: 250px;
+}
+
+.row__posterLarge:hover {
+    transform: scale(1.09);
+}
+
+/* Movie Card Container */
+.movie__card {
+    position: relative;
+    margin-right: 10px;
+    transition: transform 450ms;
+    flex-shrink: 0;
+}
+
+.movie__card:hover {
+    transform: scale(1.08);
+}
+
+/* Movie Info Overlay */
+.movie__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    padding: 20px 10px 10px;
+    opacity: 0;
+    transition: opacity 450ms;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    pointer-events: none;
+}
+
+.movie__card:hover .movie__info {
+    opacity: 1;
+}
+
+.movie__title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie__rating {
+    font-size: 0.8rem;
+    color: #46d369;
+    font-weight: bold;
+}
+
+/* YouTube Trailer Container */
+.youtube__container {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.youtube__container iframe {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading State */
+.row__loading {
+    display: flex;
+    overflow-x: scroll;
+    padding: 20px;
+    padding-left: 0;
+}
+
+.row__skeleton {
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.row__skeletonLarge {
+    height: 300px;
+}
+.row h1 {
+    font-size: 20px;
+    font-weight: 800;
+    padding-bottom: 10px; /* Ensures space between text and posters */
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .row {
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .row__title {
+        font-size: 1.2rem;
+        padding-left: 10px;
+    }
+    
+    .row__poster {
+        max-height: 80px;
+    }
+    
+    .row__posterLarge {
+        max-height: 180px;
+    }
+    
+    .row__posters {
+        padding: 10px;
+        padding-left: 0;
+    }
+    
+    .movie__info {
+        padding: 10px 5px 5px;
+    }
+    
+    .movie__title {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .row__poster {
+        max-height: 60px;
+    }
+    
+    .row__posterLarge {
+        max-height: 150px;
+    }
+    
+    .row__posters {
+        padding: 5px;
+        padding-left: 0;
+    }
+    
+    .movie__card {
+        margin-right: 5px;
+    }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1200px) {
+    .row {
+        margin-left: 40px;
+    }
+    
+    .row__title {
+        font-size: 1.6rem;
+    }
+    
+    .row__poster {
+        max-height: 120px;
+    }
+    
+    .row__posterLarge {
+        max-height: 280px;
+    }
+}
+
+/* Empty State */
+.row__empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Error State */
+.row__error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #e50914;
+    font-weight: 500;
+}
+
+.row__error button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.row__error button:hover {
+    background-color: #f40612;
+}
